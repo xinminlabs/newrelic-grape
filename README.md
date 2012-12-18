@@ -1,6 +1,6 @@
 # Newrelic::Grape
 
-TODO: Write a gem description
+NewRelic instrument for [grape][0].
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+That's it.
 
 ## Contributing
 
@@ -27,3 +27,5 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[0]: https://github.com/intridea/grape
