@@ -1,6 +1,6 @@
 # Newrelic::Grape
 
-NewRelic instrument for [grape][0].
+NewRelic instrument for [grape][0], this is inspired from this [blog post][1].
 
 ## Installation
 
@@ -29,3 +29,4 @@ That's it.
 5. Create new Pull Request
 
 [0]: https://github.com/intridea/grape
+[1]: http://artsy.github.com/blog/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/
