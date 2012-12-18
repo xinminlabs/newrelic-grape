@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Newrelic::Grape::VERSION
   gem.authors       = ["Richard Huang"]
   gem.email         = ["flyerhzm@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{newrelic instrument for grape}
+  gem.summary       = %q{newrelic instrument for grape}
+  gem.homepage      = "https://github.com/flyerhzm/newrelic-grape"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
