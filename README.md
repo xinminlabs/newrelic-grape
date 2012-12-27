@@ -20,13 +20,18 @@ Or install it yourself as:
 
 That's it.
 
+## Disabling Instrumentation
+
+Set `disable_grape` in `newrelic.yml` or `ENV['DISABLE_NEW_RELIC_GRAPE']` to disable instrumentation.
+
 ## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Update `CHANGELOG.md` describing your changes
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
 
 [0]: https://github.com/intridea/grape
 [1]: http://artsy.github.com/blog/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/
