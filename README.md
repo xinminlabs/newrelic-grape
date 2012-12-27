@@ -1,4 +1,4 @@
-# Newrelic::Grape
+# NewRelic::Grape
 
 NewRelic instrument for [grape][0], this is inspired from this [blog post][1].
 
