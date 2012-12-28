@@ -5,7 +5,7 @@ require 'newrelic-grape/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "newrelic-grape"
-  gem.version       = Newrelic::Grape::VERSION
+  gem.version       = NewRelic::Grape::VERSION
   gem.authors       = ["Richard Huang"]
   gem.email         = ["flyerhzm@gmail.com"]
   gem.description   = %q{newrelic instrument for grape}
@@ -16,4 +16,7 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_runtime_dependency(%q<grape>)
+  gem.add_runtime_dependency(%q<newrelic_rpm>)
 end
