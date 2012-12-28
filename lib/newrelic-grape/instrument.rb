@@ -6,17 +6,13 @@ module NewRelic
 
         def call!(env)
           @env = env
-          unless NewRelic::Agent::Instrumentation::Grape.disabled?
-            @newrelic_request = ::Rack::Request.new(env)
-            trace_options = {
-              :category => :rack,
-              :path => "#{request_method} #{request_path}",
-              :request => @newrelic_request
-            }
-            perform_action_with_newrelic_trace(trace_options) do
-              @app_response = @app.call(@env)
-            end
-          else
+          @newrelic_request = ::Rack::Request.new(env)
+          trace_options = {
+            :category => :rack,
+            :path => "#{request_method} #{request_path}",
+            :request => @newrelic_request
+          }
+          perform_action_with_newrelic_trace(trace_options) do
             @app_response = @app.call(@env)
           end
         end
@@ -29,12 +25,6 @@ module NewRelic
           @newrelic_request.request_method
         end
 
-        class << self
-          def disabled?
-            ::NewRelic::Control.instance['disable_grape'] || ENV['DISABLE_NEW_RELIC_GRAPE']
-          end
-        end
-
       end
     end
   end
@@ -44,7 +34,7 @@ DependencyDetection.defer do
   @name = :grape
 
   depends_on do
-    defined?(::Grape) && ! NewRelic::Agent::Instrumentation::Grape.disabled?
+    defined?(::Grape) && ! ::NewRelic::Control.instance['disable_grape'] && ! ENV['DISABLE_NEW_RELIC_GRAPE']
   end
 
   executes do
