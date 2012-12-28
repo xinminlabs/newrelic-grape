@@ -53,10 +53,10 @@ DependencyDetection.defer do
 
   executes do
     ::Grape::Endpoint.class_eval do
-      alias_method :origin_build_middleware, :build_middleware
+      alias_method :grape_build_middleware, :build_middleware
 
       def build_middleware
-        builder = origin_build_middleware
+        builder = grape_build_middleware
         builder.use ::NewRelic::Agent::Instrumentation::Grape
         builder
       end
