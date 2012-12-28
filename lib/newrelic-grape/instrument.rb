@@ -6,7 +6,6 @@ module NewRelic
 
         def call!(env)
           @env = env
-
           @newrelic_request = ::Rack::Request.new(env)
           trace_options = {
             :category => :rack,
@@ -25,6 +24,7 @@ module NewRelic
         def request_method
           @newrelic_request.request_method
         end
+
       end
     end
   end
@@ -34,7 +34,7 @@ DependencyDetection.defer do
   @name = :grape
 
   depends_on do
-    defined?(::Grape) and not ::NewRelic::Control.instance['disable_grape']
+    defined?(::Grape) && ! ::NewRelic::Control.instance['disable_grape'] && ! ENV['DISABLE_NEW_RELIC_GRAPE']
   end
 
   executes do
@@ -43,10 +43,10 @@ DependencyDetection.defer do
 
   executes do
     ::Grape::Endpoint.class_eval do
-      alias_method :origin_build_middleware, :build_middleware
+      alias_method :grape_build_middleware, :build_middleware
 
       def build_middleware
-        builder = origin_build_middleware
+        builder = grape_build_middleware
         builder.use ::NewRelic::Agent::Instrumentation::Grape
         builder
       end
