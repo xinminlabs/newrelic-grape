@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-Ensure that you have working NewRelic instrumenttion. Add the `newrelic-grape` gem. That's it.
+Ensure that you have working NewRelic instrumentation. Add the `newrelic-grape` gem. That's it.
 
 ## Disabling Instrumentation
 
