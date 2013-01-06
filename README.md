@@ -33,7 +33,7 @@ To ensure instrumentation in tests, check that `perform_action_with_newrelic_tra
 ### RSpec
 
 ``` ruby
-describe NewRelic::Agent::Instrumentation do
+describe NewRelic::Agent::Instrumentation::Grape do
   it "traces" do
     NewRelic::Agent::Instrumentation::Grape
       .any_instance
