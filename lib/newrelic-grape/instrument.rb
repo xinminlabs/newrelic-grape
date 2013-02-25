@@ -30,7 +30,7 @@ module NewRelic
   end
 end
 
-DependencyDetection.defer do 
+DependencyDetection.defer do
   @name = :grape
 
   depends_on do
@@ -42,13 +42,14 @@ DependencyDetection.defer do
   end
 
   executes do
-    ::Grape::Endpoint.class_eval do
-      alias_method :grape_build_middleware, :build_middleware
+    ::Rack::Builder.class_eval do
+      alias_method :origin_use, :use
 
-      def build_middleware
-        builder = grape_build_middleware
-        builder.use ::NewRelic::Agent::Instrumentation::Grape
-        builder
+      def use(middleware, *args, &block)
+        if middleware == Grape::Middleware::Error
+          use ::NewRelic::Agent::Instrumentation::Grape
+        end
+        origin_use(middleware, *args, &block)
       end
     end
   end
