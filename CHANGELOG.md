@@ -1,6 +1,10 @@
 # Next Release
 
-## 1.2.0 (02/27/2012)
+## 1.2.1 (04/02/2013)
+
+* Fixed an NameError problem - [@milkcocoa](https://github.com/milkcocoa)
+
+## 1.2.0 (02/27/2013)
 
 * Use newrelic-grape middleware before `Grape::Middleware::Error`
 * Better Readme
