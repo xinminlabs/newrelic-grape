@@ -13,7 +13,8 @@ module NewRelic
           trace_options = {
             :category => :rack,
             :path => "#{request_method} #{request_path}",
-            :request => @newrelic_request
+            :request => @newrelic_request,
+            :params => @newrelic_request.params
           }
           perform_action_with_newrelic_trace(trace_options) do
             @app_response = @app.call(@env)
