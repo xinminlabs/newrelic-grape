@@ -1,5 +1,9 @@
 # Next Release
 
+## 1.3.0 (05/10/2013)
+
+* Support NewRelic request params [@vindia](https://github.com/vindia)
+
 ## 1.2.1 (04/02/2013)
 
 * Fixed an NameError problem - [@milkcocoa](https://github.com/milkcocoa)
