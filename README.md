@@ -15,6 +15,17 @@ And then execute:
 Or install it yourself as:
 
     $ gem install newrelic-grape
+    
+If you're using Rails, make sure that you've told rack to start the agent for Grape:
+
+    # config.ru
+    require ::File.expand_path('../config/environment',  __FILE__)
+
+    # You need to manually start the agent
+    NewRelic::Agent.manual_start
+
+    run YourApplication::Application
+    
 
 ## Usage
 
