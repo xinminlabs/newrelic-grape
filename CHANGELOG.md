@@ -1,5 +1,10 @@
 # Next Release
 
+## 1.3.1 (06/08/2013)
+
+* Remove explicit newrelic_rpm require [@rymai](https://github.com/rymai)
+* Add information to README [@agileanimal](https://github.com/agileanimal)
+
 ## 1.3.0 (05/10/2013)
 
 * Support NewRelic request params [@vindia](https://github.com/vindia)
