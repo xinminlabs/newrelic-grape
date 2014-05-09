@@ -1,5 +1,9 @@
 # Next Release
 
+## 1.4.0 (05/09/2014)
+
+* Add version to request path [@donbobka](https://github.com/donbobka)
+
 ## 1.3.1 (06/08/2013)
 
 * Remove explicit newrelic_rpm require [@rymai](https://github.com/rymai)
