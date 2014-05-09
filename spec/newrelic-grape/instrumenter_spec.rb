@@ -8,19 +8,47 @@ describe NewRelic::Agent::Instrumentation::Grape do
     subject
   end
 
-  before do
-    subject.get :hello do
-      "Hello World"
+  context 'api without version' do
+    before do
+      subject.get :hello do
+        'Hello World'
+      end
+    end
+
+    it 'perform_action_with_newrelic_trace' do
+      NewRelic::Agent::Instrumentation::Grape.any_instance
+        .should_receive(:perform_action_with_newrelic_trace)
+        .with(hash_including(path: 'GET hello'))
+        .and_yield
+
+      get '/hello'
+      expect(last_response.status).to eq 200
+      expect(last_response.body).to eq 'Hello World'
     end
   end
 
-  it "perform_action_with_newrelic_trace" do
-    NewRelic::Agent::Instrumentation::Grape.any_instance.should_receive(:perform_action_with_newrelic_trace).and_yield
-    get "/hello"
-    last_response.status.should == 200
-    last_response.body.should == "Hello World"
+  context 'api with version' do
+    context 'in path' do
+      before do
+        subject.version 'v1', using: :path
+
+        subject.get :hello do
+          'Hello World'
+        end
+      end
+
+      it 'perform_action_with_newrelic_trace' do
+        NewRelic::Agent::Instrumentation::Grape.any_instance
+          .should_receive(:perform_action_with_newrelic_trace)
+          .with(hash_including(path: 'GET v1-hello'))
+          .and_yield
+
+        get '/v1/hello'
+
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to eq 'Hello World'
+      end
+    end
   end
 
 end
-
-
