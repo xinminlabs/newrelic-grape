@@ -1,5 +1,11 @@
 # Next Release
 
+## 1.4.1 (07/04/2014)
+
+* Fix "uninitialized constant NewRelic::MetricSpec (NameError)" with
+newrelic_rpm 3.8.1.221
+* Fix "uninitialized constant Grape"
+
 ## 1.4.0 (05/09/2014)
 
 * Add version to request path [@donbobka](https://github.com/donbobka)
