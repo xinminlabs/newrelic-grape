@@ -7,7 +7,6 @@ if ENV['RACK_ENV'] == 'development'
 end
 
 NewRelic::Agent.manual_start
-NewRelic::Agent.ignore_apdex '/newrelic'
 
 require 'api'
 run App::Api
