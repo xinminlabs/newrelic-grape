@@ -16,3 +16,4 @@ test/tmp
 test/version_tmp
 tmp
 example_app/log
+example_app_with_newrelic_3_8/log
