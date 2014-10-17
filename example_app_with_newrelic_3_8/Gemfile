@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+
+gem 'rack'
+gem 'grape'
+gem 'newrelic_rpm', '~> 3.8.0'
+gem 'newrelic-grape'
+
+group :test do
+  gem "rspec"
+  gem "rack-test", require: "rack/test"
+end
