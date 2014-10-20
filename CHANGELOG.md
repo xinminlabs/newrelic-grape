@@ -1,5 +1,9 @@
 # Next Release
 
+## 2.0.0 (10/20/2014)
+
+* Work with newrelic_rpm 3.9
+
 ## 1.4.1 (07/04/2014)
 
 * Fix "uninitialized constant NewRelic::MetricSpec (NameError)" with

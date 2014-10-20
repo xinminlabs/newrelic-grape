@@ -2,6 +2,9 @@
 
 NewRelic instrumentation for the [Grape API DSL][0], inspired by [this blog post][1].
 
+If you use newrelic_rpm < 3.9.0, please use newrelic-grape 1.4.x
+If you use newrelic_rpm >= 3.9.0, please use newrelic-grape >= 2.0.0
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -15,7 +18,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install newrelic-grape
-    
+
 If you're using Rails, make sure that you've told rack to start the agent for Grape:
 
     # config.ru
@@ -25,7 +28,7 @@ If you're using Rails, make sure that you've told rack to start the agent for Gr
     NewRelic::Agent.manual_start
 
     run YourApplication::Application
-    
+
 
 ## Usage
 
