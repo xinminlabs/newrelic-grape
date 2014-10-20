@@ -54,14 +54,23 @@ DependencyDetection.defer do
   end
 
   executes do
-    ::Rack::Builder.class_eval do
-      alias_method :origin_use, :use
+    NewRelic::Agent::Instrumentation::MiddlewareProxy.class_eval do
+      def self.needs_wrapping?(target)
+        (
+          !target.respond_to?(:_nr_has_middleware_tracing) &&
+          !is_sinatra_app?(target) &&
+          !target.is_a?(Proc)
+        )
+      end
+    end
 
-      def use(middleware, *args, &block)
-        if middleware == Grape::Middleware::Error
-          use ::NewRelic::Agent::Instrumentation::Grape
-        end
-        origin_use(middleware, *args, &block)
+    ::Grape::Endpoint.class_eval do
+      alias_method :origin_build_middleware, :build_middleware
+
+      def build_middleware
+        b = origin_build_middleware
+        b.use ::NewRelic::Agent::Instrumentation::Grape
+        b
       end
     end
   end
