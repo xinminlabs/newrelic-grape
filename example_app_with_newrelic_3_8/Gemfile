@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rack'
 gem 'grape'
 gem 'newrelic_rpm', '~> 3.8.0'
-gem 'newrelic-grape'
+gem 'newrelic-grape', '~> 1.4.0'
 
 group :test do
   gem "rspec"
