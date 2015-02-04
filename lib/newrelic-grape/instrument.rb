@@ -50,7 +50,7 @@ DependencyDetection.defer do
   end
 
   executes do
-    NewRelic::Agent.logger.debug 'Installing Grape instrumentation'
+    NewRelic::Agent.logger.info 'Installing Grape instrumentation'
   end
 
   executes do
