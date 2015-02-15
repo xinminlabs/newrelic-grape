@@ -5,6 +5,8 @@ NewRelic instrumentation for the [Grape API DSL][0], inspired by [this blog post
 If you use newrelic_rpm < 3.9.0, please use newrelic-grape 1.4.x
 If you use newrelic_rpm >= 3.9.0, please use newrelic-grape >= 2.0.0
 
+**Please note**: newrelic_rpm 3.9.8 is [incompatible](https://discuss.newrelic.com/t/refusing-to-re-register-dependencydetection-block-with-name-grape/13734)! A fix was [included in 3.9.9](https://docs.newrelic.com/docs/release-notes/agent-release-notes/ruby-release-notes/ruby-agent-399275).
+
 ## Installation
 
 Add this line to your application's Gemfile:
