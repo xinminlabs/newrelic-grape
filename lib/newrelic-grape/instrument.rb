@@ -1,5 +1,5 @@
 require 'new_relic/agent/instrumentation'
-require 'new_relic/agent/instrumentation/controller_instrumentation'
+require 'new_relic/agent/instrumentation/middleware_proxy'
 require 'grape'
 
 module NewRelic
