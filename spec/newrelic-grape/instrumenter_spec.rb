@@ -15,8 +15,8 @@ describe NewRelic::Agent::Instrumentation::Grape do
     end
 
     it 'perform_action_with_newrelic_trace' do
-      NewRelic::Agent::Instrumentation::Grape.any_instance
-        .should_receive(:perform_action_with_newrelic_trace)
+      expect_any_instance_of(NewRelic::Agent::Instrumentation::Grape)
+        .to receive(:perform_action_with_newrelic_trace)
         .with(hash_including(path: 'GET hello'))
         .and_yield
 
@@ -37,8 +37,8 @@ describe NewRelic::Agent::Instrumentation::Grape do
       end
 
       it 'perform_action_with_newrelic_trace' do
-        NewRelic::Agent::Instrumentation::Grape.any_instance
-          .should_receive(:perform_action_with_newrelic_trace)
+        expect_any_instance_of(NewRelic::Agent::Instrumentation::Grape)
+          .to receive(:perform_action_with_newrelic_trace)
           .with(hash_including(path: 'GET v1-hello'))
           .and_yield
 

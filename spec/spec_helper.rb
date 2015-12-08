@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rack/test'
 
 RSpec.configure do |config|
+  config.raise_errors_for_deprecations!
   config.include Rack::Test::Methods
   config.before do
     DependencyDetection.detect!
