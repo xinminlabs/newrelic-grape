@@ -54,24 +54,40 @@ DependencyDetection.defer do
   end
 
   executes do
-    NewRelic::Agent::Instrumentation::MiddlewareProxy.class_eval do
-      def self.needs_wrapping?(target)
-        (
-          !target.respond_to?(:_nr_has_middleware_tracing) &&
-          !is_sinatra_app?(target) &&
-          !target.is_a?(Proc)
-        )
+    begin
+      NewRelic::Agent::Instrumentation::MiddlewareProxy.class_eval do
+        def self.needs_wrapping?(target)
+          (
+            !target.respond_to?(:_nr_has_middleware_tracing) &&
+            !is_sinatra_app?(target) &&
+            !target.is_a?(Proc)
+          )
+        end
       end
-    end
 
-    ::Grape::Endpoint.class_eval do
-      alias_method :origin_build_middleware, :build_middleware
+      ::Grape::Endpoint.class_eval do
+        if method_defined?(:build_middleware)
+          alias_method :_build_middleware, :build_middleware
 
-      def build_middleware
-        b = origin_build_middleware
-        b.use ::NewRelic::Agent::Instrumentation::Grape
-        b
+          def build_middleware
+            b = _build_middleware
+            b.use ::NewRelic::Agent::Instrumentation::Grape
+            b
+          end
+        elsif private_method_defined?(:build_stack)
+          include Grape::DSL::Middleware::ClassMethods
+
+          alias_method :_build_stack, :build_stack
+
+          def build_stack
+            use ::NewRelic::Agent::Instrumentation::Grape
+            _build_stack
+          end
+        end
       end
+    rescue Exception => e
+      STDERR.puts e
+      raise e
     end
   end
 end

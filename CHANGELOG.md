@@ -1,13 +1,14 @@
 # Next Release
 
+* Work with grape 0.14.0 [@dblock](https://github.com/dblock)
+
 ## 2.0.0 (10/20/2014)
 
 * Work with newrelic_rpm 3.9
 
 ## 1.4.1 (07/04/2014)
 
-* Fix "uninitialized constant NewRelic::MetricSpec (NameError)" with
-newrelic_rpm 3.8.1.221
+* Fix "uninitialized constant NewRelic::MetricSpec (NameError)" with newrelic_rpm 3.8.1.221
 * Fix "uninitialized constant Grape"
 
 ## 1.4.0 (05/09/2014)
