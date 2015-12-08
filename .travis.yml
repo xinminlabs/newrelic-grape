@@ -1,0 +1,18 @@
+language: ruby
+
+rvm:
+  - 2.2
+  - 2.0
+  - rbx-2.5.8
+  - jruby-19mode
+
+env:
+  - GRAPE_VERSION=0.8.0
+  - GRAPE_VERSION=0.9.0
+  - GRAPE_VERSION=0.10.0
+  - GRAPE_VERSION=0.10.1
+  - GRAPE_VERSION=0.11.0
+  - GRAPE_VERSION=0.12.0
+  - GRAPE_VERSION=0.13.0
+  - GRAPE_VERSION=0.14.0
+  - GRAPE_VERSION=HEAD

@@ -1,5 +1,7 @@
 # NewRelic::Grape
 
+[![Build Status](https://travis-ci.org/xinminlabs/newrelic-grape.svg)](https://travis-ci.org/xinminlabs/newrelic-grape)
+
 NewRelic instrumentation for the [Grape API DSL][0], inspired by [this blog post][1].
 
 If you use newrelic_rpm < 3.9.0, please use newrelic-grape 1.4.x
