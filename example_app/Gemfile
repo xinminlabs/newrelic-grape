@@ -6,6 +6,6 @@ gem 'newrelic_rpm', '~> 3.9.0'
 gem 'newrelic-grape', '~> 2.0.0'
 
 group :test do
-  gem "rspec"
-  gem "rack-test", require: "rack/test"
+  gem 'rspec'
+  gem 'rack-test', require: 'rack/test'
 end

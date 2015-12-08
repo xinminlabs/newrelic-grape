@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe NewRelic::Agent::Instrumentation::Grape do
-
   subject { Class.new(Grape::API) }
 
   def app
@@ -50,5 +49,4 @@ describe NewRelic::Agent::Instrumentation::Grape do
       end
     end
   end
-
 end

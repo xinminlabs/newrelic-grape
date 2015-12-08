@@ -12,10 +12,10 @@ module NewRelic
           @env = env
           @newrelic_request = ::Rack::Request.new(env)
           trace_options = {
-            :category => :rack,
-            :path => "#{request_method} #{request_path}",
-            :request => @newrelic_request,
-            :params => @newrelic_request.params
+            category: :rack,
+            path: "#{request_method} #{request_path}",
+            request: @newrelic_request,
+            params: @newrelic_request.params
           }
           perform_action_with_newrelic_trace(trace_options) do
             @app_response = @app.call(@env)
@@ -27,7 +27,7 @@ module NewRelic
         end
 
         def request_path
-          path = route.route_path[1..-1].gsub('/', '-')
+          path = route.route_path[1..-1].tr('/', '-')
           path.sub!(/\(\.:format\)\z/, '')
           route.route_version && path.sub!(':version', route.route_version)
 
@@ -46,7 +46,7 @@ DependencyDetection.defer do
   @name = :grape
 
   depends_on do
-    defined?(::Grape) && ! ::NewRelic::Control.instance['disable_grape'] && ! ENV['DISABLE_NEW_RELIC_GRAPE']
+    defined?(::Grape) && ! ::NewRelic::Control.instance['disable_grape'] && !ENV['DISABLE_NEW_RELIC_GRAPE']
   end
 
   executes do
