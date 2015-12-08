@@ -2,6 +2,9 @@ language: ruby
 
 rvm:
   - 2.2
+  - 2.0
+  - rbx-2.5.8
+  - jruby-19mode
 
 env:
   - GRAPE_VERSION=0.8.0
