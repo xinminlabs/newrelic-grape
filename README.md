@@ -1,5 +1,7 @@
 # NewRelic::Grape
 
+### NewRelic has already officially support grape, see more [here](https://docs.newrelic.com/docs/agents/ruby-agent/frameworks/grape-instrumentation)
+
 [![Build Status](https://travis-ci.org/xinminlabs/newrelic-grape.svg)](https://travis-ci.org/xinminlabs/newrelic-grape)
 
 NewRelic instrumentation for the [Grape API DSL][0], inspired by [this blog post][1].

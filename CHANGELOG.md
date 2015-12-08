@@ -1,4 +1,4 @@
-# Next Release
+# 2.1.0 (12/08/2014)
 
 * Work with grape 0.14.0 [@dblock](https://github.com/dblock)
 
