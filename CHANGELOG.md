@@ -1,3 +1,7 @@
+# 2.2.0
+
+* Work with grape 0.16.0 [@mkou](https://github.com/mkou)
+
 # 2.1.0 (12/08/2014)
 
 * Work with grape 0.14.0 [@dblock](https://github.com/dblock)
