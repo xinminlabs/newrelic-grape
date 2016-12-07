@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = 'newrelic instrument for grape'
   gem.summary       = 'newrelic instrument for grape'
   gem.homepage      = 'https://github.com/flyerhzm/newrelic-grape'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
