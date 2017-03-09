@@ -79,9 +79,9 @@ DependencyDetection.defer do
 
           alias_method :_build_stack, :build_stack
 
-          def build_stack
+          def build_stack(*args)
             use ::NewRelic::Agent::Instrumentation::Grape
-            _build_stack
+            _build_stack(*args)
           end
         end
       end
