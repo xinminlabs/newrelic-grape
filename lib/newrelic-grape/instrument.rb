@@ -27,9 +27,9 @@ module NewRelic
         end
 
         def request_path
-          path = route.route_path[1..-1].tr('/', '-')
+          path = route.path[1..-1].tr('/', '-')
           path.sub!(/\(\.:format\)\z/, '')
-          route.route_version && path.sub!(':version', route.route_version)
+          route.version && path.sub!(':version', route.version)
 
           path
         end
